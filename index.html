@@ -9,37 +9,41 @@
 </head>
 
 <body>
+  <picture><img src="./images/logo.svg" alt="logo"></picture>
   <main class="calculator">
     <form class="calculator__amount">
       <fieldset class="calculator__amount--bill">
-        <label for="">Bill</label>
+        <p>Bill</p>
+        <label for=""></label>
         <input type="text" name="" id=""> <!-- Place image inside input using css background-image -->
       </fieldset>
-      <fieldset class="calculator__amount--tip">
-        <label for="">Select Tip %</label>
+      <section class="calculator__amount--tip">
+        <p>Select Tip %</p> 
         <div>5%</div>
         <div>10%</div>
         <div>15%</div>
         <div>25%</div>
         <div>50%</div>
         <div>Custom</div>
-      </fieldset>
+      </section>
       <fieldset class="calculator__amount--people">
-        <label for="">Number of People</label>
+        <p>Number of People</p>
+        <label for=""></label>
         <input type="text" name="" id=""> <!-- Place image inside input using css background-image -->
       </fieldset>
     </form>
-    <form class="calculator__sum"></form>
+    <footer class="calculator__sum">
+      <div class="calculator__sum--amount">
+        <p>Tip amount<br>/ person</p>
+        <div>test1</div>
+      </div>
+      <div class="calculator__sum--total">
+        <p>Tip amount<br>/ person</p>
+        <div>test1</div>
+      </div>
+      <button>Reset</button>
+    </footer>
   </main>
-
-  
-  <!-- 
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset -->
 </body>
 </html>
+

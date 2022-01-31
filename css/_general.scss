@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%; // in reference to parent viewport 
+  font-size: 62.5%; // base 10px to rem converted 
+  font-family: 'Space Mono', 'Monospace', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh; // in reference to html parent
+  background-color: $light-grayish-cyan-1;
+}
+
+// FORM 
+label { display: block; }
+
+fieldset { border: none; }
+
+:is(.calculator__amount--bill, .calculator__amount--people) input[type='text']{
+  border: none;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: $very-dark-cyan;
+}
+
+#bill-amount {
+  background: $light-grayish-cyan-2 url('/images/icon-dollar.svg') no-repeat left 10px center;
+}
+
+#people-amount {
+  background: $light-grayish-cyan-2 url('/images/icon-person.svg') no-repeat left 10px center;
+}

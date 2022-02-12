@@ -24,11 +24,8 @@ let billAmount = document.getElementById('bill-amount');
 let tipAmount = document.getElementById('tip-amount');
 let totalTip = document.getElementById('total-amount');
 // percent variables
-let five = document.getElementById('five');
-let ten = document.getElementById('ten');
-let fifteen = document.getElementById('fifteen');
-let twentyFive = document.getElementById('twenty-five');
-let fifty = document.getElementById('fifty');
+let buttons = document.querySelectorAll('[data-percentage]');
+
 // function variables
 let custom = document.getElementById('custom-amount');
 let guests = document.getElementById('people-amount');
@@ -36,11 +33,11 @@ let reset = document.getElementById('reset');
 let zero = document.getElementById('zero');
 
 /// EVENT LISTENERS
-five.addEventListener('click', () => tipFunction(5));
-ten.addEventListener('click', () => tipFunction(10));
-fifteen.addEventListener('click', () => tipFunction(15));
-twentyFive.addEventListener('click', () => tipFunction(25));
-fifty.addEventListener('click', () => tipFunction(50));
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    tipFunction(button.innerText); //last left off
+  });
+});
 
 custom.addEventListener('change', () => customButton()); // custom input button
 guests.addEventListener('change', () => notZero()); // number of people input
@@ -48,7 +45,7 @@ reset.addEventListener('click', () => resetFunction()); // Reset input
 
 // TICKET AND TIP FUNCTION
 function tipFunction(tip) {
-  let percent = tip;
+  let percent = parseFloat(tip);
   calculator.tipPercent = percent / 100;
   calculator.ticketPrice = billAmount.value;
   notZero();

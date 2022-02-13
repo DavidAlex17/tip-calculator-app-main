@@ -1,97 +1,64 @@
-/// MAIN OBJECT
+/// MAIN OBJECT * 
 let calculator = {
-  ticketPrice: 0,
-  tipPercent: 0,
-  numPeople: 0,
+  bill: 0,
+  tips: 0,
+  People: 0,
   
   results: function() {
-    if (calculator.ticketPrice == 0 || calculator.tipPercent == 0) {
-      alert("Ticket Amount or Tip not selected.\n Please select both Ticket and Tip amount.");
-    }
-
-    let newTicket = this.ticketPrice;
-    let tip = this.ticketPrice * this.tipPercent;
-    let total = parseFloat(tip) + parseFloat(newTicket);
-      
-    tipAmount.innerHTML = '$' + (tip / this.numPeople).toFixed(2);
-    totalTip.innerHTML = '$' + (total / this.numPeople).toFixed(2);
+    // cumputation
+    let tipTotal = this.bill * this.tips;
+    let total = parseFloat(tipTotal) + parseFloat(this.bill);
+    // sum
+    tipAmount.innerHTML = '$' + (tipTotal / this.People).toFixed(2);
+    totalTip.innerHTML = '$' + (total / this.People).toFixed(2);
   }
 }
 
 /// VARIABLES
-// calculator variables
-let billAmount = document.getElementById('bill-amount');
+let billAmount = document.getElementById('bill-amount'); // calculator variables
 let tipAmount = document.getElementById('tip-amount');
 let totalTip = document.getElementById('total-amount');
-// percent variables
 let buttons = document.querySelectorAll('[data-percentage]');
-
-// function variables
-let custom = document.getElementById('custom-amount');
-let guests = document.getElementById('people-amount');
-let reset = document.getElementById('reset');
-let zero = document.getElementById('zero');
+let customAmount = document.getElementById('custom-amount'); // function variables
+let numberOfPeople = document.getElementById('people-amount');
 
 /// EVENT LISTENERS
+customAmount.addEventListener('change', () => getCustomFunction());
+numberOfPeople.addEventListener('change', () => getSumFunction()); 
+reset.addEventListener('click', () => resetFunction()); 
+// for loop for each button with event listener calling the sum function
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    tipFunction(button.innerText); //last left off
+    getSumFunction(button.innerText); 
   });
 });
 
-custom.addEventListener('change', () => customButton()); // custom input button
-guests.addEventListener('change', () => notZero()); // number of people input
-reset.addEventListener('click', () => resetFunction()); // Reset input
-
-// TICKET AND TIP FUNCTION
-function tipFunction(tip) {
-  let percent = parseFloat(tip);
-  calculator.tipPercent = percent / 100;
-  calculator.ticketPrice = billAmount.value;
-  notZero();
+/// SUM FUNCTION
+const getSumFunction = (tip) => {
+  calculator.bill = billAmount.value; 
+  calculator.tips = parseFloat(tip) / 100;
+  calculator.People = numberOfPeople.value;
+  calculator.results();
 }
 
-// NUMBER OF PEOPLE FUNCTION
-const notZero = () => {
-  let numberPeople = guests.value;
-  if (numberPeople == 0) {
-    guests.classList.add('number-people-active');
-    zero.classList.add('no-zero-active');
-  } else {
-    guests.classList.remove('number-people-active');
-    zero.classList.remove('no-zero-active');
-    calculator.numPeople = guests.value;
-    calculator.results();
-  }
-}
-
-// CUSTOM INPUT FUNCTION
-const customButton = () => {
-  let newCustom = custom.value;
-  tipFunction(newCustom);
+/// CUSTOM INPUT FUNCTION
+const getCustomFunction = () => {
+  getSumFunction(customAmount.value);
 };
 
-//  RESET FUNCTION
+///  RESET FUNCTION *
 const resetFunction = () => {
   billAmount.value = null;
-  custom.value = 'custom';
-  guests.value = null;
+  customAmount.value = 'custom';
+  numberOfPeople.value = null;
   tipAmount.innerHTML = '$' + '0.00';
   totalTip.innerHTML = '$' + '0.00';
-  calculator.ticketPrice = 0;
-  guests.classList.remove('number-people-active');
-  zero.classList.remove('no-zero-active');
+  calculator.bill = 0;
 };
 
 
+// let reset = document.getElementById('reset');
+// let zero = document.getElementById('zero');
 
-// Tip Function
-// const getTip = () => {
-//   let tipCustom = Number.parseFloat(document.querySelector('#tip-custom')?.value);
-
-//   if (!Number.isNaN(tipCustom)) {
-//       return tipCustom;
-//   }
-
-//   return 0;
-// }
+// guests.classList.remove('number-people-active');
+// zero.classList.remove('no-zero-active');

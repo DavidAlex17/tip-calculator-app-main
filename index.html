@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <title>Frontend Mentor | Tip calculator app</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/main.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <title>Frontend Mentor | Tip calculator app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
 
-<body>
-  <picture><img src="./images/logo.svg" alt="logo"></picture>
-  <main class="calculator">
-    <form class="calculator__amount">
-      <fieldset class="calculator__amount--bill">
-        <label for="bill" class="heading">Bill</label>
-        <input type="text" id="bill-amount" class="bill-amount" placeholder="0" name="bill">
-      </fieldset>
-      <fieldset class="calculator__amount--tip"> 
-        <label for="buttons" class="heading">Select Tip %</label>
-        <button type='button' data-percentage>5%</button>
-        <button type='button' data-percentage>10%</button>
-        <button type='button' data-percentage>15%</button>
-        <button type='button' data-percentage>25%</button>
-        <button type='button' data-percentage>50%</button>
-        <input type="text" class="button-custom" id="custom-amount" name="buttons" placeholder="Custom" minlength="1" maxlength="2">
-      </fieldset>
-      <fieldset class="calculator__amount--people">
-        <label for="number" class="heading">Number of People</label>
-        <p class="no-zero" id="zero"></p>
-        <input type="text" class="people-amount" id="people-amount" name="number" placeholder="0" minlength="1" maxlength="2">
-      </fieldset>
-    </form>
-    <footer class="calculator__sum">
-      <div class="calculator__sum--amount">
-        <p>Tip amount<span>/ person</span></p>
-        <div id="tip-amount">$0.00</div>
-      </div>
-      <div class="calculator__sum--total">
-        <p>total<span>/ person</span></p>
-        <div id="total-amount">$0.00</div>
-      </div>
-      <button class="calculator__sum--button" id="reset">RESET</button>
-    </footer>
-  </main>
-  <script src="script.js"></script>
-</body>
+  <body>
+    <picture><img src="./images/logo.svg" alt="logo" /></picture>
+    <main class="calculator">
+      <form class="calculator__amount">
+        <fieldset class="calculator__amount--bill">
+          <label for="bill" class="heading">Bill</label>
+          <input
+            type="text"
+            id="bill-amount"
+            class="bill-amount"
+            placeholder="0"
+            name="bill"
+          />
+        </fieldset>
+        <fieldset class="calculator__amount--tip">
+          <label class="heading">Select Tip %</label>
+          <div class="flex-container">
+            <button type="button" data-percentage>5%</button>
+            <button type="button" data-percentage>10%</button>
+            <button type="button" data-percentage>15%</button>
+            <button type="button" data-percentage>25%</button>
+            <button type="button" data-percentage>50%</button>
+            <label for="buttons"></label>
+            <input
+              type="text"
+              class="button-custom"
+              id="custom-amount"
+              name="buttons"
+              placeholder="Custom"
+              minlength="1"
+              maxlength="2"
+            />
+          </div>
+        </fieldset>
+        <fieldset class="calculator__amount--people">
+          <label for="number" class="heading">Number of People</label>
+          <p class="no-zero" id="zero"></p>
+          <input
+            type="text"
+            class="people-amount"
+            id="people-amount"
+            name="number"
+            placeholder="0"
+            minlength="1"
+            maxlength="2"
+          />
+        </fieldset>
+      </form>
+
+      <footer class="calculator__sum">
+        <div class="calculator__sum--amount">
+          <p>Tip amount<span>/ person</span></p>
+          <div id="tip-amount">$0.00</div>
+        </div>
+        <div class="calculator__sum--total">
+          <p>total<span>/ person</span></p>
+          <div id="total-amount">$0.00</div>
+        </div>
+        <button class="calculator__sum--button" id="reset">RESET</button>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

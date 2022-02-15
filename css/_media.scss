@@ -1,0 +1,40 @@
+/// Desktops and laptops
+@media only screen and (min-width: 1000px) {
+  .calculator {
+    width: clamp(660px, 100vw, 660px);
+    margin: 5em;
+    padding: 2em;
+    display: flex;
+  }
+
+  .calculator__amount {
+    width: 330px;
+    margin-right: 3em;
+
+    &--tip {
+        margin-bottom: 1.5em;
+      :is(button, .button-custom) {
+        width: 6em;
+        padding: .4em;
+      }
+    }
+
+    &--people {
+        margin-bottom: 0;
+    }
+  }
+
+  .calculator__sum {
+    width: 330px;
+    padding: 4em 2em 2em;
+
+    &--amount {
+        margin-bottom: 4em;
+    }
+
+    &--button {
+      margin-top: 7em;
+      height: 3em;
+    }
+  }
+}

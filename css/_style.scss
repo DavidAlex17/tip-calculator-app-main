@@ -8,34 +8,47 @@ picture {
   color: $dark-grayish-cyan-1;
 }
 
-// CALCULATOR COMPONENT 
+// CALCULATOR COMPONENT
 .calculator {
-  max-width: 32rem;
-  margin: 4rem;
+  width: clamp(320px, 100vw, 320px);
+  margin: 4rem 0rem;
   padding: 2em;
   border-radius: 1rem;
   background-color: $white;
 }
 
 // CALCULATOR > AMOUNT COMPONENT
-
 .calculator__amount--bill {
-  margin-bottom: 2.5rem; 
+  margin-bottom: 2.5rem;
+  .bill-amount:hover {
+    cursor: pointer;
+  }
 }
 
 .calculator__amount--tip {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   :is(button, .button-custom) {
-    display: inline-flex;
-    justify-content: center;
     appearance: textfield;
     text-align: center;
-    margin: 0 .4rem 1rem 0;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
     width: 8.5rem;
-    padding: .5em;
+    padding: 0.5em;
     border: 0;
-    border-radius: .5em;
+    border-radius: 0.3em;
     font-family: inherit;
+  }
+
+  :is(button, .button-custom):hover {
+    cursor: pointer;
+    background-color: $dark-grayish-cyan-3;
+    color: $very-dark-cyan;
   }
 
   button {
@@ -51,15 +64,16 @@ picture {
 
 .calculator__amount--people {
   margin-bottom: 2.5rem;
-  
-  .number-people:hover {
+
+  .people-amount:hover {
     cursor: pointer;
   }
 }
 
 // CALCULATOR > SUM COMPONENT
-:is(.calculator__sum--amount, .calculator__sum--total) div { // parent div's, (amount, total) 
-  display: flex;                                             // not valid, child div (testX) valid only
+:is(.calculator__sum--amount, .calculator__sum--total) div {
+  // parent div's, (amount, total)
+  display: flex; // not valid, child div ($0.00) valid only
   align-items: center;
   font-size: 2rem;
   font-weight: 700;
@@ -67,10 +81,9 @@ picture {
 }
 
 .calculator__sum {
-  padding: 1em;
+  padding: 2em;
   border-radius: 1em;
   background-color: $very-dark-cyan;
-
 
   p {
     font-size: small;
@@ -83,22 +96,24 @@ picture {
     display: block;
   }
 
-  :is(&--amount, &--total) { // parent div's, (amount, total), valid only, not child div (testX)
+  :is(&--amount, &--total) {
+    // parent div's, (amount, total), valid only, not child div ($0.00)
     display: flex;
     align-items: center;
-    
+
     div {
       margin-left: auto;
     }
   }
 
   &--button {
-    border-radius: .3em;
+    border-radius: 0.3em;
     border: none;
     background-color: $dark-grayish-cyan-3;
     height: 3rem;
     width: 100%;
     margin-top: 2rem;
     font-family: inherit;
+    cursor: pointer;
   }
 }

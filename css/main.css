@@ -10,8 +10,8 @@ picture {
 }
 
 .calculator {
-  max-width: 32rem;
-  margin: 4rem;
+  width: clamp(320px, 100vw, 320px);
+  margin: 4rem 0rem;
   padding: 2em;
   border-radius: 1rem;
   background-color: white;
@@ -21,24 +21,43 @@ picture {
   margin-bottom: 2.5rem;
 }
 
+.calculator__amount--bill .bill-amount:hover {
+  cursor: pointer;
+}
+
+.calculator__amount--tip .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .calculator__amount--tip :is(button, .button-custom) {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-appearance: textfield;
      -moz-appearance: textfield;
           appearance: textfield;
   text-align: center;
-  margin: 0 .4rem 1rem 0;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   width: 8.5rem;
-  padding: .5em;
+  padding: 0.5em;
   border: 0;
-  border-radius: .5em;
+  border-radius: 0.3em;
   font-family: inherit;
+}
+
+.calculator__amount--tip :is(button, .button-custom):hover {
+  cursor: pointer;
+  background-color: #11c4ac;
+  color: #00494d;
 }
 
 .calculator__amount--tip button {
@@ -55,7 +74,7 @@ picture {
   margin-bottom: 2.5rem;
 }
 
-.calculator__amount--people .number-people:hover {
+.calculator__amount--people .people-amount:hover {
   cursor: pointer;
 }
 
@@ -72,7 +91,7 @@ picture {
 }
 
 .calculator__sum {
-  padding: 1em;
+  padding: 2em;
   border-radius: 1em;
   background-color: #00494d;
 }
@@ -102,13 +121,14 @@ picture {
 }
 
 .calculator__sum--button {
-  border-radius: .3em;
+  border-radius: 0.3em;
   border: none;
   background-color: #11c4ac;
   height: 3rem;
   width: 100%;
   margin-top: 2rem;
   font-family: inherit;
+  cursor: pointer;
 }
 
 *,
@@ -166,5 +186,41 @@ fieldset {
 
 #people-amount {
   background: #f4fafa url("/images/icon-person.svg") no-repeat left 10px center;
+}
+
+@media only screen and (min-width: 1000px) {
+  .calculator {
+    width: clamp(660px, 100vw, 660px);
+    margin: 5em;
+    padding: 2em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .calculator__amount {
+    width: 330px;
+    margin-right: 3em;
+  }
+  .calculator__amount--tip {
+    margin-bottom: 1.5em;
+  }
+  .calculator__amount--tip :is(button, .button-custom) {
+    width: 6em;
+    padding: .4em;
+  }
+  .calculator__amount--people {
+    margin-bottom: 0;
+  }
+  .calculator__sum {
+    width: 330px;
+    padding: 4em 2em 2em;
+  }
+  .calculator__sum--amount {
+    margin-bottom: 4em;
+  }
+  .calculator__sum--button {
+    margin-top: 7em;
+    height: 3em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

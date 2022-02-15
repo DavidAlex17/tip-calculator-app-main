@@ -34,9 +34,9 @@ buttons.forEach(button => {
 });
 
 /// SUM FUNCTION
-const getSumFunction = (tip) => {
+const getSumFunction = (tipOrCustom) => {
   calculator.bill = billAmount.value; 
-  calculator.tips = parseFloat(tip) / 100;
+  calculator.tips = parseFloat(tipOrCustom) / 100;
   calculator.People = numberOfPeople.value;
   calculator.results();
 }

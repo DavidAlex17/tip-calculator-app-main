@@ -54,6 +54,7 @@ picture {
   font-family: inherit;
 }
 
+.calculator__amount--tip :is(button, .button-custom):focus,
 .calculator__amount--tip :is(button, .button-custom):hover {
   cursor: pointer;
   background-color: #11c4ac;

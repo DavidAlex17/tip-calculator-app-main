@@ -45,6 +45,7 @@ picture {
     font-family: inherit;
   }
 
+  :is(button, .button-custom):focus,
   :is(button, .button-custom):hover {
     cursor: pointer;
     background-color: $dark-grayish-cyan-3;
